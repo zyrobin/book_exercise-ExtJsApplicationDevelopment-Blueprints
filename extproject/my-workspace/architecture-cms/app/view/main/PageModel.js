@@ -4,7 +4,7 @@ Ext.define('ArchitectureCms.view.main.PageModel', {
 
     requires: ['ArchitectureCms.store.Pages'],
 
-    store: {
+    stores: {
         pages: {
             type: 'pages', // 通过 Store 别名引用
 
@@ -15,6 +15,10 @@ Ext.define('ArchitectureCms.view.main.PageModel', {
             // 它还使批量更新和删除更加容易
             session: true
         }
+    },
+
+    data: {
+        searchTerm: null
     },
 
     formulas: {
