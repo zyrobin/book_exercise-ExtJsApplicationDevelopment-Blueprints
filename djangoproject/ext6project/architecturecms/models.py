@@ -9,9 +9,9 @@ from django.db import models
 @python_2_unicode_compatible
 class Page(models.Model):
     created = models.DateTimeField(auto_now_add=True)
-    text = models.CharField("Text", max_length=255, blank=False, null=False)
+    text = models.CharField("Text", max_length=255, blank=True, null=True)
     published = models.BooleanField("Published", default=False)
-    stub = models.CharField("URL Stub", max_length=255, blank=False, null=False)
+    stub = models.CharField("URL Stub", max_length=255, blank=True, null=True)
     body = models.TextField("Page Body", blank=True)
     expanded = models.BooleanField("Expanded", default=True)
     leaf = models.BooleanField("Leaf", default=True)

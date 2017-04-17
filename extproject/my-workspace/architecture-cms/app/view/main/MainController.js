@@ -46,8 +46,9 @@ Ext.define('ArchitectureCms.view.main.MainController', {
                     tree = me.lookupReference('tree');
 
                 var newPage = session.createRecord('Page', {
-                    label: value,
                     text: value,
+                    body: value,
+                    parent: selectedPage.id,
                     leaf: true
                 });
 

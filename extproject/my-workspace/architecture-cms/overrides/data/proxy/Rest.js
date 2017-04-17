@@ -43,7 +43,10 @@ Ext.define('Ext.overrides.data.proxy.Rest',{
             url += format;
         }
         else {
-            url += '/';
+
+            if (!url.match(me.slashRe)) {
+                url += '/';
+            }
         }
  
         request.setUrl(url);

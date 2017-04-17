@@ -8,7 +8,7 @@ page_list = PageViewSet.as_view({
 })
 
 page_detail = PageViewSet.as_view({
-    'get': 'retrive',
+    'get': 'retrieve',
     'put': 'update',
     'patch': 'partial_update',
     'delete': 'destroy'
@@ -16,7 +16,7 @@ page_detail = PageViewSet.as_view({
 
 
 urlpatterns = [
-    url(r'^pages/root/$', page_list, name="page-list"),
     url(r'^pages/$', page_list, name="page-list"),
-    url(r'^pages/(?P<pk>[0-9]+)/$', page_detail, name='page-detail'),
+    #url(r'^pages/root/$', page_detail, name="page-list"),
+    url(r'^pages/(?P<pk>\w+)/$', page_detail, name='page-detail'),
 ]

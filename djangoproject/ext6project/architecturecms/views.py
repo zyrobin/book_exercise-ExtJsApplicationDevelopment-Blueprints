@@ -6,6 +6,7 @@ from rest_framework.reverse import reverse
 from rest_framework import viewsets
 
 from django.contrib.auth.models import User
+from django.shortcuts import get_object_or_404
 
 from .models import Page
 from .serializers import PageSerializer
@@ -17,3 +18,14 @@ class PageViewSet(viewsets.ModelViewSet):
     """
     queryset = Page.objects.all()
     serializer_class = PageSerializer
+
+    def retrieve(self, request, pk=None):
+        queryset = self.get_queryset()
+
+        if pk=='root':
+            page = get_object_or_404(queryset, parent=None)
+        else:
+            page = get_object_or_404(queryset, pk=pk)
+
+        serializer = PageSerializer(page)
+        return Response(serializer.data)
