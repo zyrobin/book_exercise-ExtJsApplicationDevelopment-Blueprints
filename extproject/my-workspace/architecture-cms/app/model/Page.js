@@ -11,6 +11,7 @@ Ext.define('ArchitectureCms.model.Page', {
         type: 'sequential',
         prefix: 'Unsaved-'
     },
+
     schema: {
         // Ext 将自动从 Model 命名中删除该 namespace 前缀，
         // 剩下专门的 Model 名 (这里是 Page) 用于构建 URL
@@ -24,7 +25,7 @@ Ext.define('ArchitectureCms.model.Page', {
             // 使用上面定义的选项值构建 URL
             // {prefix} 值来自 urlPrefix
             // {entityName} 值为 Page，这里用其小写形式
-            url: '{prefix}/{entityName:uncapitalize}'
+            url: '{prefix}/{entityName:uncapitalize}s/'
         }
     },
     
