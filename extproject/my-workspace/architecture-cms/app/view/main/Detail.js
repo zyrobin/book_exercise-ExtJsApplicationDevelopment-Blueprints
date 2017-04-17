@@ -29,7 +29,7 @@ Ext.define('ArchitectureCms.view.main.Detail', {
             xtype: 'checkboxfield' 
         },
         { 
-            fieldLabel: 'Label',
+            fieldLabel: 'Text',
             bind: '{currentPage.text}'
         },
         { 
@@ -40,6 +40,11 @@ Ext.define('ArchitectureCms.view.main.Detail', {
             fieldLabel: 'Body',
             bind: { value: '{currentPage.body}' },
             xtype: 'htmleditor' 
+        },
+        { 
+            fieldLabel: 'Leaf',
+            bind: '{currentPage.leaf}',
+            xtype: 'checkboxfield' 
         }
     ],
     bbar: [

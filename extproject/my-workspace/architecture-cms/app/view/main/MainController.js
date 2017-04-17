@@ -38,6 +38,14 @@ Ext.define('ArchitectureCms.view.main.MainController', {
 
     onAddClick: function() {
         var me = this;
+
+        var viewModel = me.getViewModel(),
+        selectedPage = viewModel.getData().currentPage;
+
+        if (selectedPage.leaf) {
+            Ext.Msg.alert('Cant Add Page', 'Select Node ' + selectedPage.text + ' is a leaf' );
+            return;
+        }
         Ext.Msg.prompt('Add Page', 'Page Label', function (action, value) {
             if (action === 'ok') {
                 var session = me.getSession(), 
