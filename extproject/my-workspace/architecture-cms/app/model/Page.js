@@ -18,7 +18,7 @@ Ext.define('ArchitectureCms.model.Page', {
         namespace: 'ArchitectureCms.model',
 
         // URL 前缀
-        urlPrefix: 'http://localhost:8000',
+        urlPrefix: 'http://localhost:8000/architecturecms',
         proxy: {
             type: 'rest',
 
