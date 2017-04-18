@@ -382,7 +382,7 @@
      *          "js": "app.js",
      *          "microloader": {
      *              "path": "microloader.js",
-     *              "embed": true,
+     *              "embed": false,
      *              "enable": true
      *          },
      *          "manifest": {

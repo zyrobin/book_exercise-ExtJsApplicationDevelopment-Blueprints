@@ -2,7 +2,10 @@ Ext.define('ArchitectureCms.view.main.MainController', {
     extend: 'Ext.app.ViewController',
     alias: 'controller.main',
 
-    requires: ['ArchitectureCms.model.Page'],
+    requires: [
+        'Ext.window.Toast',
+        'ArchitectureCms.model.Page'
+    ],
 
     init: function(){
         this.listen({

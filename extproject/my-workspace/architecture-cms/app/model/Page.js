@@ -1,6 +1,10 @@
 Ext.define('ArchitectureCms.model.Page', {
     extend: 'Ext.data.TreeModel',
 
+    requires: [
+        'Ext.data.proxy.Rest'
+    ],
+
     // ID 属性名为 clientId
     clientIdProperty: 'clientId',
 
@@ -18,7 +22,8 @@ Ext.define('ArchitectureCms.model.Page', {
         namespace: 'ArchitectureCms.model',
 
         // URL 前缀
-        urlPrefix: 'http://localhost:8000/architecturecms',
+        //urlPrefix: 'http://localhost:8000/architecturecms',
+        urlPrefix: '/architecturecms',
         proxy: {
             type: 'rest',
 
