@@ -10,7 +10,6 @@ Ext.application({
 
     requires: [
         'Ext.plugin.Viewport',
-        'Ext.data.proxy.Rest',
         'ArchitectureCms.view.main.Main'
     ],
 

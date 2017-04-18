@@ -39,4 +39,12 @@
             <target name="-after-build"/>
     -->
 
+    <!-- App build version -->
+    <target name="-after-page">
+        <propertyfile file="app.properties">
+            <entry key="build.number" type="int" operation="+" value="1"/>
+        </propertyfile>
+        <property file="app.properties"/>
+        <replace file="${build.classes.file}" token="{VERSION}" value="${build.number}"/>
+    </target>
 </project>
