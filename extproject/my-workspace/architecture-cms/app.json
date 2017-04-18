@@ -312,7 +312,8 @@
         },
         "compressor": {
             "type": "yui"
-        }
+        },
+        "backend": ""  // backend server url
     },
     
     /**
@@ -327,7 +328,8 @@
     "development": {
         "watch": {
             "delay": 250
-        }
+        },
+        "backend": "localhost:8000"  // backend server url
     },
 
     /**

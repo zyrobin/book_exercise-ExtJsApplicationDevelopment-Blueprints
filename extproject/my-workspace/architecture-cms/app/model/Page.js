@@ -22,8 +22,9 @@ Ext.define('ArchitectureCms.model.Page', {
         namespace: 'ArchitectureCms.model',
 
         // URL 前缀
+        //http://stackoverflow.com/questions/26889313/extjs-5-sencha-build-configurations-for-different-environments
         //urlPrefix: 'http://localhost:8000/architecturecms',
-        urlPrefix: '/architecturecms',
+        urlPrefix: Ext.manifest.backend + '/architecturecms',
         proxy: {
             type: 'rest',
 
