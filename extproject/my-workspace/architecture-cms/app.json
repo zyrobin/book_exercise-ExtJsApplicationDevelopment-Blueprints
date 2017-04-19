@@ -329,7 +329,7 @@
         "watch": {
             "delay": 250
         },
-        "backend": "localhost:8000"  // backend server url
+        "backend": "http://localhost:8000"  // backend server url
     },
 
     /**
@@ -408,7 +408,9 @@
      */
     
     "output": {
-        "base": "${workspace.build.dir}/${build.environment}/${app.name}",
+        //"base": "${workspace.build.dir}/${build.environment}/${app.name}",
+        // build output to django project static folder
+        "base": "${workspace.dir}/../../djangoproject/ext6project/static/apps/${app.name}",
         "appCache": {
             "enable": false
         }

@@ -17,7 +17,12 @@ $ sencha app watch
 
 # Deployment
 
-1. build `extproject` (this will automatically copy the build output to djangoproject)
+```bash
+$ cd extproject/my-workspace/architecture-cms/
+
+# build `extproject` (this will automatically copy the build output to djangoproject)
+$ sencha app build
+```
 
 # Notice
 

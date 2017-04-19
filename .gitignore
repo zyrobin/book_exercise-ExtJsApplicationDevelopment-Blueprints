@@ -84,3 +84,7 @@ extproject/my-workspace/architecture-cms/.architect
 # It's possible to create reusable packages using Sencha Cmd
 #but depending on your preference you might want to exclude this directory. 
 extproject/my-workspace/packages/
+
+
+# ext build out files
+djangoproject/ext6project/static/apps/
