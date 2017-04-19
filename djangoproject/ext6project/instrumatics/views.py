@@ -7,7 +7,8 @@ import math
 import json
 
 from django.shortcuts import get_object_or_404
-from django.utils.timezone import datetime
+#from django.utils.timezone import datetime
+from datetime import datetime
 
 from django.views.generic.base import TemplateView
 
@@ -42,6 +43,6 @@ class LogStreamAjaxView(JSONResponseMixin, TemplateView):
         if len(type_filters):
             if type_filters[0]['value'] == 'sql':
                 json_dict['type'] = 'sql'
-            json_dict['message'] = ''
+            json_dict['message'] = json_dict['time']
 
         return self.render_json_response([json_dict])

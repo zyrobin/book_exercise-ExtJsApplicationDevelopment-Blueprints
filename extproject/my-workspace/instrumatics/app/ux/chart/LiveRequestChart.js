@@ -18,7 +18,7 @@ Ext.define('Instrumatics.ux.chart.LiveRequestChart', {
         position: 'left',
         fields: ['value'],
         title: {
-            text: 'Avg. Response \nTime (ms)',
+            text: (new Date()) + '\nAvg. Response \nTime (ms)',
             fontSize: 15
         },
         grid: true,
@@ -53,7 +53,7 @@ Ext.define('Instrumatics.ux.chart.LiveRequestChart', {
     onRedraw: function() {
         this.redrawCounter++;
 
-        if(this.redrawCounter > 15) {
+        if(this.redrawCounter > 3) {
             this.redrawCounter = 0;
 
             var timeAxis = this.getAxes()[1],

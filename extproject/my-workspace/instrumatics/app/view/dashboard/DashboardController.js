@@ -11,6 +11,6 @@ Ext.define('Instrumatics.view.dashboard.DashboardController', {
             // append to store, not add and update
             data.webLogs.load({ addRecords: true });
             data.sqlLogs.load({ addRecords: true });
-        }, 1000);
+        }, 5000);
     }
 });
