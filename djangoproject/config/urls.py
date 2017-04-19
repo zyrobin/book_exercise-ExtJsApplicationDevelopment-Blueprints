@@ -22,6 +22,8 @@ urlpatterns = [
     # Your stuff: custom urls includes go here
     url(r'^architecturecms/', include('ext6project.architecturecms.urls',
         namespace='architecturecms')),
+    url(r'^instrumatics/', include('ext6project.instrumatics.urls',
+        namespace='instrumatics')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

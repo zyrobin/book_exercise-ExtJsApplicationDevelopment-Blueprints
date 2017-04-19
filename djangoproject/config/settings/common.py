@@ -51,6 +51,7 @@ LOCAL_APPS = (
     # Your stuff: custom apps go here
     'rest_framework',
     'ext6project.architecturecms.apps.ArchitectureCmsConfig',
+    'ext6project.instrumatics.apps.InstrumaticsConfig',
 )
 
 REST_FRAMEWORK = {

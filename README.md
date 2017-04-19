@@ -5,11 +5,18 @@
 # Frontend
 
 ```bash
+# create workspace
+$ mkdir extproject && cd extproject
+$ sencha generate workspace ./my-workspace
+
 # create ext project
-$ sencha -sdk /path/to/ext-6.2.1 generate app MyApp ./extproject/myapp
+$ sencha -sdk /path/to/ext-6.2.1 generate app MyApp ./my-workspace/myapp
+
+# create another ext project
+$ sencha -sdk ./my-workspace/ext/ generate app -classic MyApp2 ./my-workspace/myapp2
 
 # watch app during development
-$ cd extproject/myapp
+$ cd myapp
 $ sencha app watch
 ```
 
