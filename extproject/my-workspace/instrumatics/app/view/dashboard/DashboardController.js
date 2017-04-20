@@ -7,10 +7,9 @@ Ext.define('Instrumatics.view.dashboard.DashboardController', {
             me = this;
 
         setInterval(function() {
-
             // append to store, not add and update
             data.webLogs.load({ addRecords: true });
             data.sqlLogs.load({ addRecords: true });
-        }, 5000);
+        }, 1000);
     }
 });

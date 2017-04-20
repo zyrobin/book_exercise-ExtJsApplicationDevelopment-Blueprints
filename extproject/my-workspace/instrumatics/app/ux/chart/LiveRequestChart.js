@@ -18,7 +18,7 @@ Ext.define('Instrumatics.ux.chart.LiveRequestChart', {
         position: 'left',
         fields: ['value'],
         title: {
-            text: (new Date()) + '\nAvg. Response \nTime (ms)',
+            text: 'Avg. Response \nTime (ms)',
             fontSize: 15
         },
         grid: true,

@@ -5,6 +5,7 @@ from __future__ import absolute_import, unicode_literals
 import random
 import math
 import json
+import pytz
 
 from django.shortcuts import get_object_or_404
 #from django.utils.timezone import datetime
@@ -15,6 +16,7 @@ from django.views.generic.base import TemplateView
 from braces.views import LoginRequiredMixin, JSONResponseMixin, \
                     JsonRequestResponseMixin
 
+CN_TIMEZONE = pytz.timezone(pytz.country_timezones('cn')[0])
 
 def get_random(base):
     return int(math.floor(random.random() * 15) + base)
@@ -27,11 +29,11 @@ class LogStreamAjaxView(JSONResponseMixin, TemplateView):
             'type': 'web',
             'subType': 'request',
             'message': 'error',
-            #"time":"2014-11-04T12:10:14.466Z", compatible with Ext model field
+            #"time":"2014-11-04T12:10:14.466+08:00", compatible with Ext model field
             #   { name: time, type: 'date' }, 
             # This format is An ISO date string as implemented by the native Date object's
             # Date.toISOString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString)
-            'time': datetime.now().strftime("%Y-%m-%dT%H:%M:%S.%fZ"),
+            'time': datetime.now(CN_TIMEZONE).isoformat(),
             'value': get_random(5),
         }
 
