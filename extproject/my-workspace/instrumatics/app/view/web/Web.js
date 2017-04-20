@@ -12,6 +12,8 @@ Ext.define('Instrumatics.view.web.Web',{
         type: 'web-web'
     },
 
+    controller: 'web-web',
+
     layout: {
         type: 'vbox',
         align: 'stretch'

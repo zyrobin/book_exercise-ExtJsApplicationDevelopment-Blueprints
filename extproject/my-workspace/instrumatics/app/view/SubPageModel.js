@@ -11,6 +11,7 @@ Ext.define('Instrumatics.view.SubPageModel', {
             remoteFilter: true,
             filters: [
                 // can bind to current ViewModel's data
+                { property: 'type', value: '{currentType}' },
                 { property: 'startDate', value: '{currentStartDate}' },
                 { property: 'endDate', value: '{currentEndDate}' }
             ]
@@ -21,6 +22,7 @@ Ext.define('Instrumatics.view.SubPageModel', {
             autoLoad: true,
             remoteFilter: true,
             filters: [
+                { property: 'type', value: '{currentType}' },
                 { property: 'category', value: '{currentCategory}' },
                 { property: 'startDate', value: '{currentStartDate}' },
                 { property: 'endDate', value: '{currentEndDate}' }
@@ -31,6 +33,7 @@ Ext.define('Instrumatics.view.SubPageModel', {
 
     data: {
         currentStartDate: null,
-        currentEndDate: null
+        currentEndDate: null,
+        currentType: ''
     }
 });

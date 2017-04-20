@@ -15,6 +15,7 @@ Ext.define('Instrumatics.view.web.WebModel', {
     },
 
     data: {
-        currentCategory: 'browser'
+        currentCategory: 'browser',
+        currentType: 'web'
     }
 });

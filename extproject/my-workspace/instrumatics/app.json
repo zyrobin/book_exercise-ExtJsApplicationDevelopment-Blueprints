@@ -409,9 +409,9 @@
      */
     
     "output": {
+        //"base": "${workspace.build.dir}/${build.environment}/${app.name}",
         // build output to django project static folder
-        //"base": "${workspace.dir}/../../djangoproject/ext6project/static/apps/${app.name}",
-        "base": "${workspace.build.dir}/${build.environment}/${app.name}",
+        "base": "${workspace.dir}/../../djangoproject/ext6project/static/apps/${app.name}",
         "appCache": {
             "enable": false
         }

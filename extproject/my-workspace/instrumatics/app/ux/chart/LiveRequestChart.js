@@ -53,7 +53,7 @@ Ext.define('Instrumatics.ux.chart.LiveRequestChart', {
     onRedraw: function() {
         this.redrawCounter++;
 
-        if(this.redrawCounter > 3) {
+        if(this.redrawCounter > 15) {
             this.redrawCounter = 0;
 
             var timeAxis = this.getAxes()[1],

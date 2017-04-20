@@ -14,6 +14,7 @@ Ext.define('Instrumatics.view.sql.SqlModel', {
     },
 
     data: {
-        currentCategory: 'source'
+        currentCategory: 'source',
+        currentType: 'sql'
     }
 });
