@@ -8,6 +8,6 @@ Ext.define('Postcard.view.main.MainModel', {
 
     data: {
         currentTag: 'Inbox',
-        searchTerm: null
+        searchTerm: ''
     }
 });

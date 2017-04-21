@@ -7,7 +7,6 @@ Ext.define('Postcard.model.Message', {
         { name: 'subject' },
         { name: 'body' },
         { name: 'date', type: 'date', dateFormat: 'Y-m-dTH:i:s P'},
-        { name: 'tag' }
     ],
     proxy: {
         reader: {

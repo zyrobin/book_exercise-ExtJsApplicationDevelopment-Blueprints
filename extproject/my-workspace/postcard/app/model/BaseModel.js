@@ -5,6 +5,11 @@ Ext.define('Postcard.model.BaseModel', {
         'Ext.data.proxy.Rest'
     ],
 
+    idProperty: 'id',
+
+    identifier: {
+        type: 'sequential'
+    },
     schema: {
         namespace: 'Postcard.model',
         urlPrefix: Ext.manifest.backend + '/postcard',
