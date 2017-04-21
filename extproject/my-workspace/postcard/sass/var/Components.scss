@@ -1,0 +1,104 @@
+$subdued-grey: #c8c8c8;
+$gutters: 10px;
+
+$body-font-family: 'Roboto', sans-serif;
+$window-base-color: #fff;
+$window-header-color: #000;
+$window-padding: 20px;
+$window-header-font-family: $body-font-family;
+$toolbar-footer-background-color: #fff;
+$form-label-font-family: $body-font-family;
+
+
+.title {
+	font-family: 'Pacifico', cursive;
+	font-size: 250%;
+}
+
+.x-btn-default-small.logout {
+	background: #fff;
+	border: 0;
+	.x-btn-inner-default-small {
+		color: black;
+		font-weight: normal;
+	}
+}
+
+.search-box {
+	.x-form-trigger-wrap-default {
+		border: 0;
+	}
+	input {
+		border-bottom: 1px solid $subdued-grey;
+
+		&:focus {
+			border-bottom: 3px solid #157ef4;
+		}
+	}
+}
+
+.composer { 
+	margin: $gutters;
+}
+
+.message-view {
+	font-family: $body-font-family;
+	margin: $gutters;
+
+	.x-view-item-focused {
+		outline: 0 !important;
+
+		.header {
+			color: rgb(255, 20, 108);
+		}
+	}
+
+	.header {
+		font-size: 125%
+	}
+
+	.body {
+		font-size: 105%;
+		color: #666;
+		padding: 10px 0;
+		line-height: 160%;
+	}
+
+	.date {
+		color: $subdued-grey;
+		font-size: 150%;
+		padding: 0 15px;
+		font-weight: bold
+	}
+}
+
+.message {
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	padding: 10px;
+
+	.details {
+		border-bottom: 1px solid $subdued-grey;
+	}
+
+	&:last-child .details {
+		border-bottom: 0 !important;	
+	}
+
+}
+
+
+.message {
+	display: flex;
+	.date {
+		width: 80px;
+		-webkit-order: 2;
+	}
+	.details {
+		flex: 1;
+		-webkit-order: 1;
+	}
+}

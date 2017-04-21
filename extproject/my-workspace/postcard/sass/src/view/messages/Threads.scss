@@ -1,0 +1,61 @@
+.message-view {
+	font-family: $body-font-family;
+	margin: $gutters;
+
+	.x-view-item-focused {
+		outline: 0 !important;
+
+		.header {
+			color: rgb(255, 20, 108);
+		}
+	}
+
+	.header {
+		font-size: 125%
+	}
+
+	.body {
+		font-size: 105%;
+		color: #666;
+		padding: 10px 0;
+		line-height: 160%;
+	}
+
+	.date {
+		color: $subdued-grey;
+		font-size: 150%;
+		padding: 0 15px;
+		font-weight: bold
+	}
+}
+
+.message {
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	padding: 10px;
+
+	.details {
+		border-bottom: 1px solid $subdued-grey;
+	}
+
+	&:last-child .details {
+		border-bottom: 0 !important;	
+	}
+
+}
+
+
+.message {
+	display: flex;
+	.date {
+		width: 80px;
+		-webkit-order: 2;
+	}
+	.details {
+		flex: 1;
+		-webkit-order: 1;
+	}
+}
