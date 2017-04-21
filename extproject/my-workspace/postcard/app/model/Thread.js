@@ -5,7 +5,8 @@ Ext.define('Postcard.model.Thread', {
         { name: 'people' },
         { name: 'subject' },
         { name: 'lastMessageOn', type: 'date' },
-        { name: 'lastMessageSnippet' }
+        { name: 'lastMessageSnippet' },
+        { name: 'tag' }
     ],
     proxy: {
         reader: {

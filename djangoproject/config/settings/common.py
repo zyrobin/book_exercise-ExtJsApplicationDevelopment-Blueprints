@@ -52,6 +52,7 @@ LOCAL_APPS = (
     'rest_framework',
     'ext6project.architecturecms.apps.ArchitectureCmsConfig',
     'ext6project.instrumatics.apps.InstrumaticsConfig',
+    'ext6project.postcard.apps.PostcardConfig',
 )
 
 REST_FRAMEWORK = {

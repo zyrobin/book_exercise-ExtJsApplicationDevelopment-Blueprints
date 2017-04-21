@@ -24,6 +24,8 @@ urlpatterns = [
         namespace='architecturecms')),
     url(r'^instrumatics/', include('ext6project.instrumatics.urls',
         namespace='instrumatics')),
+    url(r'^postcard/', include('ext6project.postcard.urls',
+        namespace='postcard')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

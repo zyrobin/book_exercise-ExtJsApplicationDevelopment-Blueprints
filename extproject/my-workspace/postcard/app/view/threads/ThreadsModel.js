@@ -17,7 +17,7 @@ Ext.define('Postcard.view.threads.ThreadsModel', {
                 },
                 {
                     property: 'searchTerm',
-                    value: '%{searchTerm}%'
+                    value: '{searchTerm}'
                 }
             ]
         }
