@@ -12,6 +12,8 @@ from django.shortcuts import get_object_or_404
 
 from .models import *
 from .serializers import *
+from .paginations import ExtJsStartLimitPagination
+from rest_framework.pagination import LimitOffsetPagination
 
 class TagViewSet(viewsets.ModelViewSet):
     """
@@ -38,18 +40,28 @@ def _get_filter(filters, filter_name):
     return ''
 
 class ThreadViewSet(viewsets.ModelViewSet):
-    queryset = Thread.objects.all()
     serializer_class = ThreadSerializer
+    pagination_class = ExtJsStartLimitPagination
 
-    def list(self, request):
-        # request.GET:
+
+    def get_serializer(self, *args, **kwargs):
+        """
+        Return the serializer instance that should be used for validating and
+        deserializing input, and for serializing output.
+        """
+        kwargs['partial'] = True  # enable partial update
+
+        return super(ThreadViewSet, self).get_serializer(*args, **kwargs)
+
+    def get_queryset(self):
+        # self.request.GET:
         #<QueryDict: {u'filter': [u'[{"property":"tag","value":"Inbox"},{"property":"searchTerm","value":""}]'], u'start': [u'0'], u'_dc': [u'1492745651262'], u'limit': [u'25'], u'page': [u'1']}>
 
         #<QueryDict: {u'filter': [u'[{"property":"type","value":"web"}]'], u'start': [u'0'], u'_dc': [u'1492570602979'], u'limit': [u'25'], u'page': [u'1']}>
-        queryset = self.get_queryset()
+        queryset = Thread.objects.all()
 
-        if request.GET.get('filter'):
-            filters = json.loads(request.GET.get('filter'))
+        if self.request.GET.get('filter'):
+            filters = json.loads(self.request.GET.get('filter'))
 
             tag = _get_filter(filters, 'tag')
             searchTerm = _get_filter(filters, 'searchTerm')
@@ -60,24 +72,32 @@ class ThreadViewSet(viewsets.ModelViewSet):
             if searchTerm:
                 queryset = queryset.filter(subject__icontains=searchTerm)
 
-        serializer = ThreadSerializer(queryset, many=True)
+        return queryset
 
-        return Response(serializer.data)
+
+    def perform_create(self, serializer):
+        tag_name = self.request.POST.get('tag')
+        tag = get_object_or_404(Tag, name=tag_name)
+        serializer.save(tag=tag)
+
+    def perform_update(self, serializer):
+        tag_name = self.request.data.get('tag')
+        tag = get_object_or_404(Tag, name=tag_name)
+        serializer.save(tag=tag)
+
 
 class MessageViewSet(viewsets.ModelViewSet):
-    queryset = Message.objects.all()
     serializer_class = MessageSerializer
+    pagination_class = ExtJsStartLimitPagination
 
-    def list(self, request):
-        # request.GET:
+    def get_queryset(self):
+        # self.request.GET:
         #<QueryDict: {u'filter': [u'[{"property":"tag","value":"Inbox"},{"property":"searchTerm","value":""}]'], u'start': [u'0'], u'_dc': [u'1492745651262'], u'limit': [u'25'], u'page': [u'1']}>
 
         #<QueryDict: {u'filter': [u'[{"property":"type","value":"web"}]'], u'start': [u'0'], u'_dc': [u'1492570602979'], u'limit': [u'25'], u'page': [u'1']}>
-        queryset = self.get_queryset()
+        queryset = Message.objects.all()
 
-        if request.GET.get('parent'):
-            queryset = queryset.filter(parent=request.GET.get('parent'))
+        if self.request.GET.get('thread'):
+            queryset = queryset.filter(thread=self.request.GET.get('thread'))
 
-        serializer = MessageSerializer(queryset, many=True)
-
-        return Response(serializer.data)
+        return queryset

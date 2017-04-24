@@ -20,8 +20,8 @@ Ext.define('Postcard.view.composer.ComposerController', {
         this.getView().hide();
     },
 
-    showComposer: function(parentId) {
-        this.getViewModel().set('newMessage.parentId', parentId);
+    showComposer: function(thread) {
+        this.getViewModel().set('newMessage.thread', thread);
         this.getView().show();
     },
 
@@ -33,7 +33,7 @@ Ext.define('Postcard.view.composer.ComposerController', {
             people: data.people,
             subject: data.subject,
             body: data.body,
-            parent: data.parentId
+            thread: data.thread
         });
 
         var batch = session.getSaveBatch().start();
@@ -44,8 +44,8 @@ Ext.define('Postcard.view.composer.ComposerController', {
     onSaveComplete: function(batch, operation) {
         var record = operation.getRecords()[0],
             id = record.getId(),
-            parentId = record.get('parent');
+            thread = record.get('thread');
 
-        this.redirectTo('thread/' + (parentId || id) + '/messages');
+        this.redirectTo('thread/' + (thread || id) + '/messages');
     }
 });

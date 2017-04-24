@@ -3,7 +3,6 @@ Ext.define('Postcard.view.threads.Threads', {
     extend: 'Ext.DataView',
     xtype: 'threads',
     cls: 'thread-view',
-    viewModel: 'threads',
     controller: 'threads',
     border: true,
     deferEmptyText: false,

@@ -10,7 +10,12 @@ Ext.define('Postcard.model.Thread', {
     ],
     proxy: {
         reader: {
-            rootProperty: 'threads'
-        }
+            totalProperty: 'count',
+            rootProperty: 'results'
+        }/*,
+        writer:{
+            // send all fields, not just dirty fields
+            writeAllFields:true 
+        }*/
     }
 });

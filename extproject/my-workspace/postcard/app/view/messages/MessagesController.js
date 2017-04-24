@@ -23,11 +23,11 @@ Ext.define('Postcard.view.messages.MessagesController', {
     onShowThread:function(id) {
         this.getViewModel().get('messages').load({
             params: {
-                parent: id
+                thread: id
             },
             callback: function(records) {
                 this.getView().show();
-                this.getViewModel().set('currentThread', records[0]);
+                this.getViewModel().set('currentThread', id);
             },
             scope: this
         });
@@ -42,19 +42,24 @@ Ext.define('Postcard.view.messages.MessagesController', {
     },
 
     onTagChange: function() {
+        var me = this;
         var tagPicker = this.lookupReference('tagPicker'),
             newTag = tagPicker.getValue(),
             viewModel = this.getViewModel(),
-            threadParent = viewModel.get('currentThread');
+            threadId = viewModel.get('currentThread');
 
-        threadParent.set('tag', newTag);
-        threadParent.save({
-            callback: function() {
-                this.getViewModel().get('tags').reload();
-                this.fireEvent('tagadded');
-                this.fireEvent('threadschanged');
-            },
-            scope: this
-        });
+        thread = viewModel.get('threads').getById(threadId);
+
+        if (thread) {
+            thread.set('tag', newTag);
+            thread.save({
+                callback: function() {
+                    viewModel.get('tags').reload();
+                    this.fireEvent('tagadded');
+                    this.fireEvent('threadschanged');
+                },
+                scope: me
+            });
+        }
     }
 });

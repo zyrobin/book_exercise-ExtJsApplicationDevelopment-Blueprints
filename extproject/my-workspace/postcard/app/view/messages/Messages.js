@@ -3,7 +3,6 @@ Ext.define('Postcard.view.messages.Messages', {
     extend: 'Ext.Panel',
     xtype: 'messages',
     controller: 'messages',
-    viewModel: 'messages',
     autoScroll: true,
     session: true,
     bbar: [

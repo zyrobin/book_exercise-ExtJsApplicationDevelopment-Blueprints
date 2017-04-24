@@ -50,7 +50,7 @@ class Message(models.Model):
     body = models.TextField("Body", blank=True)
     date = models.DateTimeField(auto_now_add=True)
 
-    parent = models.ForeignKey(Thread, related_name='messages')
+    thread = models.ForeignKey(Thread, related_name='messages')
 
     class Meta:
         ordering = ('-date', )

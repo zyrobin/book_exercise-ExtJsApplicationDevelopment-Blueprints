@@ -29,4 +29,4 @@ class ThreadSerializer(serializers.ModelSerializer):
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
-        fields = ('id', 'people', 'subject', 'body', 'date', 'parent')
+        fields = ('id', 'people', 'subject', 'body', 'date', 'thread')
