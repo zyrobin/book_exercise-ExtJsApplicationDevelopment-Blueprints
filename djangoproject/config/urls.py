@@ -26,6 +26,8 @@ urlpatterns = [
         namespace='instrumatics')),
     url(r'^postcard/', include('ext6project.postcard.urls',
         namespace='postcard')),
+    url(r'^questions/', include('ext6project.questions.urls',
+        namespace='questions')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
