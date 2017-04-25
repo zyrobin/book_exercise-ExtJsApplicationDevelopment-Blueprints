@@ -5,7 +5,8 @@
     "apps": [
         "architecture-cms",
         "instrumatics",
-        "postcard"
+        "postcard",
+        "questions"
     ],
 
     /**
